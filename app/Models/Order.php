@@ -16,7 +16,7 @@ class Order extends Model
         'shipping_address', 
         'billing_address', 
         'created_at'
-    ]; // Поля для замовлення
+    ];
 
     public function customer()
     {
@@ -25,6 +25,6 @@ class Order extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class)->withPivot('quantity', 'price'); // Багато-до-багатьох зв'язок
+        return $this->belongsToMany(Product::class)->withPivot('quantity', 'price'); 
     }
 }

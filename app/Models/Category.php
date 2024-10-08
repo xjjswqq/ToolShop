@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description']; // Додано поле опису
+    protected $fillable = ['name', 'description']; 
 
     public function products()
     {

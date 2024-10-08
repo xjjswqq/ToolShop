@@ -17,7 +17,7 @@ class Customer extends Model
         'address', 
         'city', 
         'postal_code'
-    ]; // Поля для зберігання інформації про клієнта
+    ]; 
 
     public function orders()
     {
