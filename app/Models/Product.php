@@ -8,4 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name', 
+        'description', 
+        'price', 
+        'stock', 
+        'brand_id', 
+        'category_id'
+    ]; 
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class)->withPivot('quantity', 'price'); // Багато-до-багатьох зв'язок
+    }
 }

@@ -8,4 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'customer_id', 
+        'total_amount', 
+        'status', 
+        'shipping_address', 
+        'billing_address', 
+        'created_at'
+    ]; // Поля для замовлення
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class)->withPivot('quantity', 'price'); // Багато-до-багатьох зв'язок
+    }
 }
